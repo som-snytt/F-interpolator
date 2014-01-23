@@ -39,5 +39,8 @@ package flue {
       val res = F"%q$x%q is a wonderful $y."
       assertEquals(""""Scala" is a wonderful opera house.""", res)
     }
+    @Test def verified(): Unit = {
+      assertEquals("She is 4 feet tall.", F"She is ${4}%d feet tall.")
+    }
   }
 }

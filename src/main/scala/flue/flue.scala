@@ -69,7 +69,7 @@ object FlueImpl {
       }
       // try the format string with arbitrary default values
       def attemptApplyingDefaults(s: String) = {
-        s.format(args map defaultOf)
+        s.format(args map defaultOf : _*)
         true
       }
       val Literal(Constant(s: String)) = lcs
