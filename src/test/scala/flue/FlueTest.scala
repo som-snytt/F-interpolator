@@ -3,7 +3,7 @@ package object flue {
   import scala.language.experimental.macros
 
   implicit class Flue(val sc: StringContext) {
-    def F(args: Any*): String = macro FlueImpl.flue
+    def F(args: Any*): String = macro Fextensions.impl
   }
 }
 package flue {
@@ -20,6 +20,9 @@ package flue {
       assertEquals("10,000", F"${10000}%,d")
       assertEquals("7 7 9", F"${7}%d %<d ${9}%d")
       assertEquals("7 7 9", F"${7}%d %1$$d ${9}%d")
+    }
+    @Test def DNC_stringy(): Unit = {
+      //F"${"hi"}%+s"
     }
     @Test def DNC_integral(): Unit = {
       //F"${4}%2.2d"
